@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-sm-12 ">
+        <form [formGroup]="currencyForm" (ngSubmit)="convert()">
+            <div class="row row-contain">
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input class="form-control" type="number" formControlName="amount" placeholder="Amount " />
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="from">From:</label>
+                        <select class="form-control" id="from" formControlName="from" placeholder=" From">
+                <option  value="{{ symbol.code }}" *ngFor="let symbol of symbols"
+                  >{{ symbol.text }} ({{ symbol.code }})</option
+                >
+              </select>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-primary swap-button " (click)="swapCurrencies()">
+                    <span class="fa-solid fa-right-left"></span>
+               </button>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="to">To:</label>
+                        <select class="form-control" id="to" formControlName="to" placeholder=" To">
+                <option value="{{ symbol.code }}" *ngFor="let symbol of symbols"
+                  >{{ symbol.text }} ({{ symbol.code }})</option
+                >
+              </select>
+
+                    </div>
+                </div>
+                <div class="col-sm-7 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!currencyForm.valid">
+              Convert
+            </button>
+                </div>
+
+            </div>
+        </form>
+        <br />
+        <h5>{{ message }} </h5>
+    </div>
+</div>
+
+<!-- <div class="currency-converter">
+    <h2>Currency Converter</h2>
+    <div class="form-group">
+        <label for="baseCurrency">Base Currency:</label>
+        <input type="text" id="baseCurrency" [(ngModel)]="baseCurrency">
+    </div>
+    <div class="form-group">
+        <label for="targetCurrency">Target Currency:</label>
+        <input type="text" id="targetCurrency" [(ngModel)]="targetCurrency">
+    </div>
+    <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" [(ngModel)]="amount" (ngModelChange)="convertCurrency()">
+    </div>
+    <div class="result">
+        <p>{{ amount }} {{ baseCurrency }} = {{ convertedAmount }} {{ targetCurrency }}</p>
+        <button (click)="swapCurrencies()">Swap Currencies</button>
+    </div>
+</div> -->

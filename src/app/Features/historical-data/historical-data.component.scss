@@ -1,0 +1,24 @@
+.btn.btn-primary.swap-button {
+    margin-left: 10px;
+    justify-content: center;
+}
+
+.row {
+    align-items: center;
+    justify-content: center;
+}
+
+.row-contain {
+    align-items: center;
+    justify-content: center;
+}
+
+.btn.btn-primary.btn-lg {
+    margin-left: 38%;
+}
+
+@media (max-width:500px) {
+    .btn.btn-primary.btn-lg {
+        margin: auto;
+    }
+}
